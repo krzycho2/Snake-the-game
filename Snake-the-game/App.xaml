@@ -2,8 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Snake_the_game"
+             xmlns:viewmodels="clr-namespace:Snake_the_game.ViewModels"
+             xmlns:views="clr-namespace:Snake_the_game.Views"
+
              >
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewmodels:GameViewModel}">
+            <views:GameView />
+        </DataTemplate>
     </Application.Resources>
 </Application>
