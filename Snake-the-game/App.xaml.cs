@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake_the_game.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,15 @@ namespace Snake_the_game
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            var appWindow = new MainWindow()
+            {
+                DataContext = new MainWindowViewModel()
+            };
+            appWindow.Show();
+            
+        }
     }
 }
