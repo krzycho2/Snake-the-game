@@ -11,10 +11,5 @@ namespace Snake_the_game.Models
         public int X { get; set; }
         public int Y { get; set; }
         
-        public Position(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
     }
 }

@@ -22,7 +22,7 @@ namespace Snake_the_game.Models
             SnakeParts.Add(
                 new SnakePart()
                 {
-                    Position = new Position(10, 10),
+                    Position = new Position { X = 10, Y = 10 },
                     IsHead = true
                 }
             );

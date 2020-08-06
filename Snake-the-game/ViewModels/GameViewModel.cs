@@ -22,15 +22,30 @@ namespace Snake_the_game.ViewModels
             }
         }
 
-        private int _location = 220;
-        public int Location
+        private Position _position = new Position { X = 120, Y = 200 };
+        public Position Position
         {
-            get => _location;
+            get => _position;
             set
             {
-                _location = value;
-                OnPropertyChanged("Location");
+                _position = value;
+                OnPropertyChanged("Position");
             }
+        }
+
+        public Position Position1
+        {
+            get => new Position { X = 300, Y = 320 };
+        }
+
+        public Position Position2
+        {
+            get => new Position { X = 320, Y = 320 };
+        }
+
+        public Position Position3
+        {
+            get => new Position { X = 340, Y = 320 };
         }
 
         private List<SnakePart> _snakeParts;
@@ -53,9 +68,9 @@ namespace Snake_the_game.ViewModels
             StartClock();
 
             var parts = new List<SnakePart>();
-            parts.Add(new SnakePart { Position = new Position(300, 300), IsHead = true });
-            parts.Add(new SnakePart { Position = new Position(320, 300), IsHead = false });
-            parts.Add(new SnakePart { Position = new Position(340, 300), IsHead = false });
+            parts.Add(new SnakePart { Position = new Position { X = 300, Y = 300}, IsHead = true });
+            parts.Add(new SnakePart { Position = new Position { X = 320, Y = 300 }, IsHead = false });
+            parts.Add(new SnakePart { Position = new Position { X = 340, Y = 300 }, IsHead = false });
 
             SnakeParts = parts;
         }
@@ -79,7 +94,7 @@ namespace Snake_the_game.ViewModels
         void timer_Tick(object sender, EventArgs e)
         {
             //Text1 = "Aktualny czas: " + DateTime.Now.ToString();
-            Location = (Location + 20) % 400;
+            //Location = (Location + 20) % 400;
 
         }
     }
