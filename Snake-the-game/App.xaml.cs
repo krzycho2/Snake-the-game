@@ -19,7 +19,8 @@ namespace Snake_the_game
             base.OnStartup(e);
             var appWindow = new MainWindow()
             {
-                DataContext = new MainWindowViewModel()
+                //DataContext = new MainWindowViewModel()
+                DataContext = new GameViewModel()
             };
             appWindow.Show();
             

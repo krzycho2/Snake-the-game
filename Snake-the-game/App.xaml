@@ -7,8 +7,6 @@
 
              >
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:GameViewModel}">
-            <views:GameView />
-        </DataTemplate>
+
     </Application.Resources>
 </Application>

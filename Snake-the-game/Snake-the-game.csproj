@@ -67,6 +67,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="EventArgs.cs" />
+    <Compile Include="EventRaiser.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Snake.cs" />
+    <Compile Include="Models\SnakeDirection.cs" />
+    <Compile Include="Models\SnakePart.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -104,8 +113,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
