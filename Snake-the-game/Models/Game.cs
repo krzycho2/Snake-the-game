@@ -23,7 +23,7 @@ namespace Snake_the_game.Models
 
         private Snake CreateSnake()
         {
-            return new Snake();
+            return new Snake(AppContext.INIT_SNAKE_POSITION, SnakeDirection.Left);
         }
 
         private Food CreateFood()
@@ -39,6 +39,7 @@ namespace Snake_the_game.Models
         public void TimerTick()
         {
             Snake.Move();
+
             if(Snake.HeadPosition == Food.Position)
             {
                 Snake.Eat();

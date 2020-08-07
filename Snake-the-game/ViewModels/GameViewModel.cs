@@ -16,16 +16,6 @@ namespace Snake_the_game.ViewModels
         private List<SnakePart> _snakeParts;
         private Position _foodPosition;
 
-        
-        //private string _text1 = "Dobry";
-        //public string Text1 {
-        //    get => _text1;
-        //    set {
-        //        _text1 = value;
-        //        OnPropertyChanged("Text1");
-        //    }
-        //}
-
         public List<SnakePart> SnakeParts
         {
             get => _snakeParts;
@@ -34,7 +24,12 @@ namespace Snake_the_game.ViewModels
             {
                 _snakeParts = value;
                 OnPropertyChanged("SnakeParts");
-                Console.WriteLine("Ustawienie SnakeParts");
+                Console.WriteLine("Aktualizacja SnakeParts");
+                Console.WriteLine("Aktualny wąż:");
+                foreach (var part in SnakeParts)
+                {
+                    Console.WriteLine(part.Position.X + " " + part.Position.Y);
+                }
             }
             
         }
@@ -59,9 +54,9 @@ namespace Snake_the_game.ViewModels
             get => AppContext.GAME_AREA_WIDTH;
         }
 
-        public int GameAreaLength
+        public int GameAreHeight
         {
-            get => AppContext.GAME_AREA_LENGTH;
+            get => AppContext.GAME_AREA_HEIGHT;
         }
 
 
@@ -92,7 +87,6 @@ namespace Snake_the_game.ViewModels
         private void ReadFromModel()
         {
             SnakeParts = Game.Snake.SnakeParts;
-
         }
 
 

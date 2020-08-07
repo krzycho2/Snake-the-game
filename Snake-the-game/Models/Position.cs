@@ -11,9 +11,21 @@ namespace Snake_the_game.Models
         public int X { get; set; }
         public int Y { get; set; }
 
+        public int Position_x
+        {
+            get => X;
+        }
+
+        public int Position_y
+        {
+            get => Y;
+        }
+
         public Position NextPositionBasedOnDirection(SnakeDirection direction)
         {
             int x = 0, y = 0;
+            int maxX = AppContext.GAME_AREA_WIDTH;
+            int maxY = AppContext.GAME_AREA_HEIGHT;
             switch (direction)
             {
                 case SnakeDirection.Up:
@@ -37,6 +49,16 @@ namespace Snake_the_game.Models
                     y = Y;
                     break;
             }
+
+            if (x < 0)
+                x = maxX + x;
+            else if (x > maxX)
+                x = x - maxX;
+
+            if (y < 0)
+                y = maxY + y;
+            else if (y > maxY)
+                y = y - maxY;
 
             return new Position { X = x, Y = y };
         }

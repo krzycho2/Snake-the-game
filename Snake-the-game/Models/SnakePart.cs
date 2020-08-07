@@ -15,19 +15,6 @@ namespace Snake_the_game.Models
     {
         public Position Position { get; set; }
 
-        public UIElement UIElement
-        {
-            get
-            {
-                var rect = new Rectangle()
-                {
-                    Width = 20,
-                    Height = 20,
-                    Fill = Brushes.Black
-                };
-                return rect;
-            }
-        }
         public bool IsHead { get; set; }
     }
 }
