@@ -7,21 +7,10 @@
         
         mc:Ignorable="d"
         Title="MainWindow" SizeToContent="WidthAndHeight"  ResizeMode="NoResize" >
-    <!--<Canvas Name="GameArea" Height="400" Width="400" >
 
-        <ItemsControl ItemsSource="{Binding Path=SnakeParts}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    --><!--<TextBlock Text="{Binding Position.X}" Width="{Binding Position.X}" HorizontalAlignment="Right"/>--><!--
-                    <Rectangle Width="20" Height="20" Canvas.Left="0" Canvas.Top="100" Fill="Black"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        
-    </Canvas>-->
 
     <Canvas Name="GameArea" Height="400" Width="400">
-        <ItemsControl ItemsSource="{Binding SnakeParts, UpdateSourceTrigger=PropertyChanged, NotifyOnTargetUpdated=True}">
+        <ItemsControl ItemsSource="{Binding SnakeParts, UpdateSourceTrigger=PropertyChanged}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas IsItemsHost="True"/>
@@ -35,6 +24,7 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
+                    
                     <Rectangle Width="20" Height="20" Fill="Black"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
