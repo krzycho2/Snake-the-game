@@ -74,16 +74,16 @@ namespace Snake_the_game.Models
         private void AddPart() // At the beginning, after the head
         {
             var newPosition = SnakeParts[0].Position.NextPositionBasedOnDirection(Direction);
-            Console.WriteLine($"Nowa pozycja: {newPosition.X}, {newPosition.Y}");
+            //Console.WriteLine($"Nowa pozycja: {newPosition.X}, {newPosition.Y}");
             SnakeParts.Insert(0, new SnakePart { Position = newPosition, IsHead = true });
             SnakeParts[1].IsHead = false;
 
             Console.WriteLine("Dodano element. Aktualna długość: " + SnakeParts.Count);
-            Console.WriteLine("Aktualny wąż:");
-            foreach(var part in SnakeParts)
-            {
-                Console.WriteLine(part.Position.X + " " + part.Position.Y);
-            }
+            //Console.WriteLine("Aktualny wąż:");
+            //foreach(var part in SnakeParts)
+            //{
+            //    Console.WriteLine(part.Position.X + " " + part.Position.Y);
+            //}
         }
     }
 }

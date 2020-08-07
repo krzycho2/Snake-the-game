@@ -14,6 +14,8 @@ namespace Snake_the_game.Models
 
         public Food Food { get; set; }
 
+        public int Score { get; set; } = 0;
+
 
         public Game()
         {
@@ -28,21 +30,21 @@ namespace Snake_the_game.Models
 
         private Food CreateFood()
         {
-            return new Food();
+            return new Food(AppContext.INIT_FOOD_POSITION);
         }
 
         public void TimerTick()
         {
-            Snake.Move();
-           
-            if (Snake.HeadPosition == Food.Position)
+            Console.WriteLine($"Food: {Food.Position.X} {Food.Position.Y}, Snake: {Snake.HeadPosition.X} {Snake.HeadPosition.Y}");
+            if (Snake.HeadPosition.X == Food.Position.X && Snake.HeadPosition.Y == Food.Position.Y)
             {
+                Console.WriteLine("Warunek na zjedzenie spełniony");
                 Snake.Eat();
                 Food.CreateNewPosition();
+                Score++;
             }
 
-            //Snake.Direction = (SnakeDirection)rnd.Next(3);
-            Console.WriteLine("Nowy kierunek: " + Snake.Direction);
+            Snake.Move();
         }
     }
 }

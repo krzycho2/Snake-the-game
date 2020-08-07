@@ -36,9 +36,11 @@
 
         <!-- Food -->
         <Ellipse Width="20" Height="20" Canvas.Left="{Binding FoodPosition.X}" Canvas.Top="{Binding FoodPosition.Y}" Fill="Red"/>
-    
-        
+
+        <TextBlock Text="{Binding Score}"/>
+
     </Canvas>
+    
 
     <!--Key bindings for intercepting arrow to steer the snake.-->
     <Window.InputBindings>

@@ -15,12 +15,7 @@ namespace Snake_the_game.ViewModels
     public class GameViewModel : BaseViewModel
     {
         private ObservableCollection<SnakePart> _snakeParts;
-        private Position _foodPosition;
-
-        private ICommand _upPress;
-        private ICommand _leftPress;
-        private ICommand _downPress;
-        private ICommand _rightPress;
+        private Position _foodPosition = new Position { X = 100, Y = 100 };
 
         public ObservableCollection<SnakePart> SnakeParts
         {
@@ -30,14 +25,13 @@ namespace Snake_the_game.ViewModels
             {
                 _snakeParts = value;
                 OnPropertyChanged("SnakeParts");
-                Console.WriteLine("Aktualizacja SnakeParts");
                 Console.WriteLine("Aktualny wąż:");
-                foreach (var part in SnakeParts)
-                {
-                    Console.WriteLine(part.Position.X + " " + part.Position.Y);
-                }
+                Console.WriteLine($"Głowa: {Game.Snake.HeadPosition.X} {Game.Snake.HeadPosition.Y}.");
+                //foreach (var part in SnakeParts)
+                //{
+                //    Console.WriteLine(part.Position.X + " " + part.Position.Y);
+                //}
             }
-            
         }
 
         public Position FoodPosition
@@ -56,12 +50,7 @@ namespace Snake_the_game.ViewModels
 
         public int GameAreHeight { get => AppContext.GAME_AREA_HEIGHT; }
 
-        public KeyBinding KeyBinding {
-            set {
-                var key = value.Key;
-                Console.WriteLine("Podano: " + key);
-            }
-        }
+        public Position InitFoodPosition { get => AppContext.INIT_FOOD_POSITION; }
 
         public ICommand UpPress
         {
@@ -113,14 +102,5 @@ namespace Snake_the_game.ViewModels
             SnakeParts = new ObservableCollection<SnakePart>(Game.Snake.SnakeParts);
             FoodPosition = Game.Food.Position;
         }
-
-
-        //public ICommand Click
-        //{
-        //    get => new RelayCommand(x => StartClock());
-        //}
-
-
-
     }
 }
