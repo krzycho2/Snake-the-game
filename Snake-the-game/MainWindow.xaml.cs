@@ -32,38 +32,38 @@ namespace Snake_the_game
             //DrawGameArea();
         }
 
-        private void DrawGameArea()
-        {
-            bool doneDrawingBackground = false;
-            int nextX = 0, nextY = 0;
-            int rowCounter = 0;
-            bool nextIsOdd = false;
+        //private void DrawGameArea()
+        //{
+        //    bool doneDrawingBackground = false;
+        //    int nextX = 0, nextY = 0;
+        //    int rowCounter = 0;
+        //    bool nextIsOdd = false;
 
-            while (doneDrawingBackground == false)
-            {
-                Rectangle rect = new Rectangle
-                {
-                    Width = SnakeSquareSize,
-                    Height = SnakeSquareSize,
-                    Fill = nextIsOdd ? Brushes.White : Brushes.Black
-                };
-                GameArea.Children.Add(rect);
-                Canvas.SetTop(rect, nextY);
-                Canvas.SetLeft(rect, nextX);
+        //    while (doneDrawingBackground == false)
+        //    {
+        //        Rectangle rect = new Rectangle
+        //        {
+        //            Width = SnakeSquareSize,
+        //            Height = SnakeSquareSize,
+        //            Fill = nextIsOdd ? Brushes.White : Brushes.Black
+        //        };
+        //        GameArea.Children.Add(rect);
+        //        Canvas.SetTop(rect, nextY);
+        //        Canvas.SetLeft(rect, nextX);
 
-                nextIsOdd = !nextIsOdd;
-                nextX += SnakeSquareSize;
-                if (nextX >= GameArea.ActualWidth)
-                {
-                    nextX = 0;
-                    nextY += SnakeSquareSize;
-                    rowCounter++;
-                    nextIsOdd = (rowCounter % 2 != 0);
-                }
+        //        nextIsOdd = !nextIsOdd;
+        //        nextX += SnakeSquareSize;
+        //        if (nextX >= GameArea.ActualWidth)
+        //        {
+        //            nextX = 0;
+        //            nextY += SnakeSquareSize;
+        //            rowCounter++;
+        //            nextIsOdd = (rowCounter % 2 != 0);
+        //        }
 
-                if (nextY >= GameArea.ActualHeight)
-                    doneDrawingBackground = true;
-            }
-        }
+        //        if (nextY >= GameArea.ActualHeight)
+        //            doneDrawingBackground = true;
+        //    }
+        //}
     }
 }

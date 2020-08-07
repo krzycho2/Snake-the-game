@@ -6,25 +6,39 @@
         xmlns:local="clr-namespace:Snake_the_game"
         
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight" ContentRendered="Window_ContentRendered" ResizeMode="NoResize" >
-    <Canvas Name="GameArea" Height="400" Width="400" >
-        <!--<ContentControl Content="{Binding gameViewModel}" BorderBrush="Black" Height="1000"/>-->
-        <TextBlock Text="{Binding Text1}"/>
-        <!--<Button Content="Start" Command="{Binding Click}" Canvas.Left="142" Canvas.Top="81"/>-->
-        <!--<Rectangle Width="20" Height="20" Fill="Black" Canvas.Left="{Binding Position.X}" Canvas.Top="{Binding Position.Y}"/>-->
+        Title="MainWindow" SizeToContent="WidthAndHeight"  ResizeMode="NoResize" >
+    <!--<Canvas Name="GameArea" Height="400" Width="400" >
 
-        <Rectangle Width="20" Height="20" Canvas.Left="{Binding Position1.X}" Canvas.Top="{Binding Position1.Y}" Fill="Pink"/>
-        <Rectangle Width="20" Height="20" Canvas.Left="{Binding Position2.X}" Canvas.Top="{Binding Position2.Y}" Fill="Pink"/>
-        <Rectangle Width="20" Height="20" Canvas.Left="{Binding Position3.X}" Canvas.Top="{Binding Position3.Y}" Fill="Pink"/>
-        <ItemsControl ItemsSource="{Binding SnakeParts}">
+        <ItemsControl ItemsSource="{Binding Path=SnakeParts}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <!--<TextBlock Text="{Binding Position.X}"/>-->
-                    <Rectangle Width="20" Height="20" Canvas.Left="{Binding Position.X, Mode=OneWay}" Canvas.Top="{Binding Position.Y, Mode=OneWay}" Fill="Black"/>
+                    --><!--<TextBlock Text="{Binding Position.X}" Width="{Binding Position.X}" HorizontalAlignment="Right"/>--><!--
+                    <Rectangle Width="20" Height="20" Canvas.Left="0" Canvas.Top="100" Fill="Black"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         
+    </Canvas>-->
+
+    <Canvas Name="GameArea" Height="400" Width="400">
+        <ItemsControl ItemsSource="{Binding SnakeParts}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas IsItemsHost="True"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Canvas.Left" Value="{Binding Position.X}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding Position.Y}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Width="20" Height="20" Fill="Black"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Canvas>
 
 </Window>

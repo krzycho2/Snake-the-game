@@ -35,23 +35,30 @@ namespace Snake_the_game.ViewModels
 
         public Position Position1
         {
-            get => new Position { X = 300, Y = 320 };
+            get => new Position { X = 300, Y = 100 };
         }
 
         public Position Position2
         {
-            get => new Position { X = 320, Y = 320 };
+            get => new Position { X = 320, Y = 120 };
         }
 
         public Position Position3
         {
-            get => new Position { X = 340, Y = 320 };
+            get => new Position { X = 340, Y = 140 };
         }
 
         private List<SnakePart> _snakeParts;
         public List<SnakePart> SnakeParts
         {
-            get => _snakeParts;
+            get {
+                return _snakeParts;
+                //var parts = new List<SnakePart>();
+                //parts.Add(new SnakePart { Position = new Position { X = 0, Y = 100 }, IsHead = true });
+                //parts.Add(new SnakePart { Position = new Position { X = 20, Y = 120 }, IsHead = false });
+                //parts.Add(new SnakePart { Position = new Position { X = 40, Y = 140 }, IsHead = false });
+                //return parts;
+            }
 
             set
             {
@@ -68,7 +75,7 @@ namespace Snake_the_game.ViewModels
             StartClock();
 
             var parts = new List<SnakePart>();
-            parts.Add(new SnakePart { Position = new Position { X = 300, Y = 300}, IsHead = true });
+            parts.Add(new SnakePart { Position = new Position { X = 300, Y = 300 }, IsHead = true });
             parts.Add(new SnakePart { Position = new Position { X = 320, Y = 300 }, IsHead = false });
             parts.Add(new SnakePart { Position = new Position { X = 340, Y = 300 }, IsHead = false });
 
@@ -86,16 +93,23 @@ namespace Snake_the_game.ViewModels
         {
             Console.WriteLine("Wywyołanie StartClock");
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromSeconds(0.1);
             timer.Tick += timer_Tick;
             timer.Start();
         }
 
         void timer_Tick(object sender, EventArgs e)
         {
-            //Text1 = "Aktualny czas: " + DateTime.Now.ToString();
-            //Location = (Location + 20) % 400;
+            int py = SnakeParts[0].Position.Y;
+            int px0 = (SnakeParts[0].Position.X + 20) % 400;
+            int px1 = (SnakeParts[1].Position.X + 20) % 400;
+            int px2 = (SnakeParts[2].Position.X + 20) % 400;
+            var parts = new List<SnakePart>();
+            parts.Add(new SnakePart { Position = new Position { X = px0, Y = py }, IsHead = true });
+            parts.Add(new SnakePart { Position = new Position { X = px1, Y = py }, IsHead = false });
+            parts.Add(new SnakePart { Position = new Position { X = px2, Y = py }, IsHead = false });
 
+            SnakeParts = parts;
         }
     }
 }

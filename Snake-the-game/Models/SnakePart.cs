@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
 
 namespace Snake_the_game.Models
 {
@@ -12,13 +15,18 @@ namespace Snake_the_game.Models
     {
         public Position Position { get; set; }
 
-        public int Position_x {
-            get => Position.X;
-        }
-
-        public int Position_y
+        public UIElement UIElement
         {
-            get => Position.Y;
+            get
+            {
+                var rect = new Rectangle()
+                {
+                    Width = 20,
+                    Height = 20,
+                    Fill = Brushes.Black
+                };
+                return rect;
+            }
         }
         public bool IsHead { get; set; }
     }
