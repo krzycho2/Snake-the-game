@@ -54,6 +54,17 @@ namespace Snake_the_game.ViewModels
             get => AppContext.SNAKE_SQUARE_SIZE;
         }
 
+        public int GameAreaWidth
+        {
+            get => AppContext.GAME_AREA_WIDTH;
+        }
+
+        public int GameAreaLength
+        {
+            get => AppContext.GAME_AREA_LENGTH;
+        }
+
+
         private Game Game { get; set; }
 
         public GameViewModel()
