@@ -31,16 +31,12 @@ namespace Snake_the_game.Models
             return new Food();
         }
 
-        //public void Start() 
-        //{
-        //    StartClock();
-        //}
-
         public void TimerTick()
         {
             Snake.Move();
+            //Food.CreateNewPosition(); // Działa
 
-            if(Snake.HeadPosition == Food.Position)
+            if (Snake.HeadPosition == Food.Position)
             {
                 Snake.Eat();
                 Food.CreateNewPosition();

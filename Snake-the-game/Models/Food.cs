@@ -10,6 +10,17 @@ namespace Snake_the_game.Models
     {
         public Position Position { get; set; }
 
-        public void CreateNewPosition() { }
+        public void CreateNewPosition() 
+        {
+            int maxX = AppContext.GAME_AREA_WIDTH;
+            int maxY = AppContext.GAME_AREA_HEIGHT;
+
+            var rnd = new Random();
+
+            int newX = rnd.Next(maxX);
+            int newY = rnd.Next(maxY);
+
+            Position = new Position { X = newX, Y = newY };
+        }
     }
 }

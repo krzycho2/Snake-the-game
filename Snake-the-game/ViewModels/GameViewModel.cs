@@ -8,15 +8,16 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using System.Windows;
 using System.Threading;
+using System.Collections.ObjectModel;
 
 namespace Snake_the_game.ViewModels
 {
     public class GameViewModel : BaseViewModel
     {
-        private List<SnakePart> _snakeParts;
+        private ObservableCollection<SnakePart> _snakeParts;
         private Position _foodPosition;
 
-        public List<SnakePart> SnakeParts
+        public ObservableCollection<SnakePart> SnakeParts
         {
             get => _snakeParts;
 
@@ -86,7 +87,8 @@ namespace Snake_the_game.ViewModels
 
         private void ReadFromModel()
         {
-            SnakeParts = Game.Snake.SnakeParts;
+            SnakeParts = new ObservableCollection<SnakePart>(Game.Snake.SnakeParts);
+            FoodPosition = Game.Food.Position;
         }
 
 
