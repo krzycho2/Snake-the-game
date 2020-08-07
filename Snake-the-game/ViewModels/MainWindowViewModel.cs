@@ -9,9 +9,9 @@ namespace Snake_the_game.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private GameViewModel _gameViewModel;
+        private GameViewModel _gameViewModel = new GameViewModel();
 
-        public GameViewModel gameViewModel
+        public GameViewModel GameViewModel
         {
             get => _gameViewModel;
 
@@ -22,16 +22,6 @@ namespace Snake_the_game.ViewModels
                 Console.WriteLine("Ustawienie gameViewModel");
             }
 
-        }
-        
-        public MainWindowViewModel()
-        {
-            gameViewModel = new GameViewModel();
-        }
-
-        public ICommand Click
-        {
-            get => new RelayCommand(x => gameViewModel.StartClock());
         }
     }
 }

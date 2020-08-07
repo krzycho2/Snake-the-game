@@ -3,29 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace Snake_the_game.Models
 {
     class Game
     {
-        Snake snake { get; set; }
+        public Snake Snake { get; set; }
 
-        Food food { get; set; }
+        public Food Food { get; set; }
+
 
         public Game()
         {
-            snake = CreateSnake();
-            food = CreateFood();
+            Snake = CreateSnake();
+            Food = CreateFood();
         }
 
         private Snake CreateSnake()
         {
-            throw new NotImplementedException();
+            return new Snake();
         }
 
         private Food CreateFood()
         {
-            throw new NotImplementedException();
+            return new Food();
+        }
+
+        //public void Start() 
+        //{
+        //    StartClock();
+        //}
+
+        public void TimerTick()
+        {
+            Snake.Move();
+            if(Snake.HeadPosition == Food.Position)
+            {
+                Snake.Eat();
+                Food.CreateNewPosition();
+            }
         }
     }
 }

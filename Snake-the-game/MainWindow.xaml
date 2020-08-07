@@ -35,7 +35,7 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Rectangle Width="20" Height="20" Fill="Black"/>
+                    <Rectangle Width="{Binding SnakeSquareSize}" Height="{Binding SnakeSquareSize}" Fill="Black"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

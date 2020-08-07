@@ -9,35 +9,54 @@ namespace Snake_the_game.Models
 {
     class Snake
     {
-        public int nParts { get; private set; }
-        SnakeDirection snakeDirection { get; set; }
-        Point Direction { get; set; }
-        List<SnakePart> SnakeParts { get; set; }
         int speed;
 
-        public Snake()
+        public Position HeadPosition 
         {
-            nParts = 1;
+            get => SnakeParts[0].Position;
+        }
+
+        public SnakeDirection Direction { get; set; }
+
+        public List<SnakePart> SnakeParts { get; private set; }
+
+        public Snake(Position initSnakePosition)
+        {
             SnakeParts = new List<SnakePart>();
             SnakeParts.Add(
                 new SnakePart()
                 {
-                    Position = new Position { X = 10, Y = 10 },
+                    Position = initSnakePosition,
                     IsHead = true
                 }
             );
+
+            AddSomeParts();
+
+        }
+
+        private void AddSomeParts()
+        {
+            SnakeParts.Add(new SnakePart { Position = new Position { X = 0, Y = 100 }, IsHead = false });
+            SnakeParts.Add(new SnakePart { Position = new Position { X = 20, Y = 120 }, IsHead = false });
+            SnakeParts.Add(new SnakePart { Position = new Position { X = 40, Y = 140 }, IsHead = false });
+        }
+
+        public void Move()
+        {
 
         }
 
         public void Eat()
         {
-            nParts++;
             AddPart();
         }
 
-        private void AddPart()
+        private void AddPart() // At the beginning, after the head
         {
-            
+            var newPosition = SnakeParts[0].Position.NextPositionBasedOnDirection(Direction);
+            SnakeParts.Add(new SnakePart { Position = newPosition, IsHead = true });
+            SnakeParts[1].IsHead = false;
         }
     }
 }

@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Snake_the_game.Models
+namespace Snake_the_game
 {
-    public enum SnakeDirection
+    static class AppContext
     {
-        Up,
-        Right,
-        Down,
-        Left
+        public static int SNAKE_SQUARE_SIZE = 20;
     }
 }
