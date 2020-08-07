@@ -10,7 +10,7 @@ namespace Snake_the_game
     static class AppContext
     {
         public static int SNAKE_SQUARE_SIZE = 20;
-        public static Position INIT_SNAKE_POSITION = new Position { X = 150, Y = 150 };
+        public static Position INIT_SNAKE_POSITION = new Position { X = 100, Y = 100 };
         public static int GAME_AREA_HEIGHT = 400;
         public static int GAME_AREA_WIDTH = 400;
     }

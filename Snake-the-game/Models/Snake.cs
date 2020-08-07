@@ -10,15 +10,26 @@ namespace Snake_the_game.Models
     class Snake
     {
         int speed;
+        private SnakeDirection _direction;
 
         public Position HeadPosition 
         {
             get => SnakeParts[0].Position;
         }
 
-        public SnakeDirection Direction { get; set; }
+        public SnakeDirection Direction 
+        {
+            get => _direction;
+            set
+            {
+                Console.WriteLine("Zmiana kierunku na: " + value);
+                _direction = value;
+            }
+        }
 
         public List<SnakePart> SnakeParts { get; private set; }
+
+
 
         public Snake(Position initSnakePosition, SnakeDirection initSnakeDirection)
         {
@@ -53,8 +64,6 @@ namespace Snake_the_game.Models
             SnakeParts[1].IsHead = false;
 
             SnakeParts.RemoveAt(SnakeParts.Count - 1);
-
-
         }
 
         public void Eat()

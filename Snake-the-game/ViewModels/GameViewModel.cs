@@ -16,7 +16,11 @@ namespace Snake_the_game.ViewModels
     {
         private ObservableCollection<SnakePart> _snakeParts;
         private Position _foodPosition;
-        private ICommand _arrowPress;
+
+        private ICommand _upPress;
+        private ICommand _leftPress;
+        private ICommand _downPress;
+        private ICommand _rightPress;
 
         public ObservableCollection<SnakePart> SnakeParts
         {
@@ -59,11 +63,24 @@ namespace Snake_the_game.ViewModels
             }
         }
 
-        public ICommand ArrowPress
+        public ICommand UpPress
         {
-            get =>
-                _arrowPress ?? (_arrowPress = new RelayCommand(x => Mediator.Notify("CloseProgram", "")));
+            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Up);
+        }
 
+        public ICommand DownPress
+        {
+            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Down);
+        }
+
+        public ICommand LeftPress
+        {
+            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Left);
+        }
+
+        public ICommand RightPress
+        {
+            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Right);
         }
 
 

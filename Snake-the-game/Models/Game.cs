@@ -34,19 +34,14 @@ namespace Snake_the_game.Models
         public void TimerTick()
         {
             Snake.Move();
-            //Food.CreateNewPosition(); // Działa
-
-            // losowa zmiana kierunku żeby zobaczyć, czy poprawnie chodzi
-            var rnd = new Random();
-            
-
+           
             if (Snake.HeadPosition == Food.Position)
             {
                 Snake.Eat();
                 Food.CreateNewPosition();
             }
 
-            Snake.Direction = (SnakeDirection)rnd.Next(3);
+            //Snake.Direction = (SnakeDirection)rnd.Next(3);
             Console.WriteLine("Nowy kierunek: " + Snake.Direction);
         }
     }
