@@ -37,6 +37,9 @@
         <!-- Food -->
         <Ellipse Width="20" Height="20" Canvas.Left="{Binding FoodPosition.X}" Canvas.Top="{Binding FoodPosition.Y}" Fill="Red"/>
     
+        
     </Canvas>
+
+    
 
 </Window>

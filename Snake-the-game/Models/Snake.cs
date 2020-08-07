@@ -41,6 +41,9 @@ namespace Snake_the_game.Models
             AddPart();
             AddPart();
             AddPart();
+            AddPart();
+            AddPart();
+            AddPart();
         }
 
         public void Move()

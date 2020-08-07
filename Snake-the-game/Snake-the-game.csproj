@@ -70,6 +70,7 @@
     <Compile Include="EventArgs.cs" />
     <Compile Include="EventRaiser.cs" />
     <Compile Include="AppContext.cs" />
+    <Compile Include="Mediator.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Position.cs" />

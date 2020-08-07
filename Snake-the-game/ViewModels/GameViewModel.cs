@@ -16,6 +16,7 @@ namespace Snake_the_game.ViewModels
     {
         private ObservableCollection<SnakePart> _snakeParts;
         private Position _foodPosition;
+        private ICommand _arrowPress;
 
         public ObservableCollection<SnakePart> SnakeParts
         {
@@ -45,19 +46,24 @@ namespace Snake_the_game.ViewModels
             }
         }
 
-        public int SnakeSquareSize
-        {
-            get => AppContext.SNAKE_SQUARE_SIZE;
+        public int SnakeSquareSize { get => AppContext.SNAKE_SQUARE_SIZE; }
+
+        public int GameAreaWidth { get => AppContext.GAME_AREA_WIDTH; }
+
+        public int GameAreHeight { get => AppContext.GAME_AREA_HEIGHT; }
+
+        public KeyBinding KeyBinding {
+            set {
+                var key = value.Key;
+                Console.WriteLine("Podano: " + key);
+            }
         }
 
-        public int GameAreaWidth
+        public ICommand ArrowPress
         {
-            get => AppContext.GAME_AREA_WIDTH;
-        }
+            get =>
+                _arrowPress ?? (_arrowPress = new RelayCommand(x => Mediator.Notify("CloseProgram", "")));
 
-        public int GameAreHeight
-        {
-            get => AppContext.GAME_AREA_HEIGHT;
         }
 
 
