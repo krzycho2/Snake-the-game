@@ -79,7 +79,7 @@ namespace Snake_the_game.ViewModels
 
         private void GameTick(object sender, EventArgs e)
         {
-            Game.Tick();
+            Game.TickAsync();
             ReadFromModel();
         }
 
