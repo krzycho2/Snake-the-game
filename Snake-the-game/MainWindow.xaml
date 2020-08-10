@@ -6,10 +6,16 @@
         xmlns:local="clr-namespace:Snake_the_game"
         
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight"  ResizeMode="NoResize" >
+        Title="MainWindow" Height="500" Width="500"  ResizeMode="NoResize" >
+    <Window.Background>
+        <ImageBrush ImageSource="{Binding BackgroundImagePath}" Stretch="None" Opacity="0.5"/>
+    </Window.Background>
+
+    <Grid>
+        <ContentControl Content="{Binding CurrentPageViewModel}" Grid.ColumnSpan="2" Margin="0,0,-0.4,0.4"/>
+    </Grid>
 
 
-    <ContentControl Content="{Binding CurrentPageViewModel}"/>
 
     <Window.InputBindings>
         <KeyBinding 

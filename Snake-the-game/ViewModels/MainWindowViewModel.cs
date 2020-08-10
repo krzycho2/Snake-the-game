@@ -12,6 +12,8 @@ namespace Snake_the_game.ViewModels
     {
         private IPageViewModel _currentPageViewModel;
 
+        private string _backgroundImagePath = @"C:\Users\Krzysztof Krupiński\source\repos\Snake-the-game\Snake-the-game\image.bmp";
+
         private ICommand _upPress;
         private ICommand _downPress;
         private ICommand _leftPress;
@@ -35,6 +37,17 @@ namespace Snake_the_game.ViewModels
         public void ChangeViewModel(IPageViewModel viewModel)
         {
             CurrentPageViewModel = viewModel;
+        }
+
+        public string BackgroundImagePath 
+        {
+            get => _backgroundImagePath;
+            set
+            {
+                _backgroundImagePath = value;
+                Console.WriteLine("Zmiana obrazka");
+                OnPropertyChanged("BackgroundImagePath");
+            }
         }
 
         public ICommand UpPress 

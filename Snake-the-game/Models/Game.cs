@@ -19,6 +19,8 @@ namespace Snake_the_game.Models
 
         public bool GameOver { get; private set; } = false;
 
+        public string ImagePath { get; set; }
+
         public Game()
         {
             Snake = CreateSnake();
@@ -83,12 +85,21 @@ namespace Snake_the_game.Models
             };
 
             var rnd = new Random();
-            var imgLocation = imgLocations[rnd.Next(imgLocations.Count-1)];
+            int rndNum = rnd.Next(imgLocations.Count - 1);
+            var imgLocation = imgLocations[rndNum];
 
             var downloader = new ImageDownloader();
 
             var imageBitmap = await downloader.DownloadImageAsync(imgLocation);
-            Console.WriteLine("Obrazek pobrany");
+
+            var imagePath = @"C:\Users\Krzysztof Krupiński\source\repos\Snake-the-game\Snake-the-game\" + rndNum.ToString() + ".bmp";
+            imageBitmap.Save(imagePath);
+
+            ImagePath = imagePath;
+
+            Mediator.Notify("ImagePathSet", "");
+            Console.WriteLine("Obrazek zapisany: " + imagePath);
+
         }
 
     }

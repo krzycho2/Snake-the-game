@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Snake_the_game.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
-        <TextBlock Text="HelloView"/>
-        <Button Content="Start game" Command="{Binding StartGame}"/>
+        <TextBlock Text="Witamy w grze Snek. Należy w niej tak poruszać wężem przy pomocy strzałek, aby ten zdobywał pożywienie i nie zjadał własnego ogona. Powodzenia!
+                  " VerticalAlignment="Bottom" Margin="20,0,20,360" Foreground="White" 
+                   Height="100" TextWrapping="Wrap" TextAlignment="Justify" FontSize="20" FontFamily="Trebuchet MS"/>
+        <Button Content="Rozpocznij grę" Command="{Binding StartGame}" VerticalAlignment="Bottom" Height="35" Margin="150,0,155,20" Foreground="White" Background="{x:Null}" FontSize="20" />
     </Grid>
 </UserControl>

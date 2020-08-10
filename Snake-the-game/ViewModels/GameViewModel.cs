@@ -16,6 +16,7 @@ namespace Snake_the_game.ViewModels
     {
         private ObservableCollection<SnakePart> _snakeParts;
         private Position _foodPosition = new Position { X = 100, Y = 100 };
+        private string _scoreString;
 
         public ObservableCollection<SnakePart> SnakeParts
         {
@@ -45,18 +46,22 @@ namespace Snake_the_game.ViewModels
 
         public Position InitFoodPosition { get => AppContext.INIT_FOOD_POSITION; }
 
+        public int Score
+        {
+            get => Game.Score;
+        }
 
-
-        public int Score {
-            get 
+        public string ScoreString 
+        {
+            get => _scoreString;
+            set
             {
-                if (Game == null)
-                    return 0;
-                else
-                    return Game.Score;
+                _scoreString = value;
+                OnPropertyChanged("ScoreString");
             }
         }
 
+        public string ImagePath { get => Game.ImagePath; }
 
         private Game Game { get; set; }
 
@@ -87,6 +92,7 @@ namespace Snake_the_game.ViewModels
         {
             SnakeParts = new ObservableCollection<SnakePart>(Game.Snake.SnakeParts);
             FoodPosition = Game.Food.Position;
+            ScoreString = "Wynik: " + Game.Score.ToString();
         }
 
         public void StopGame()
