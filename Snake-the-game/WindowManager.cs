@@ -35,6 +35,8 @@ namespace Snake_the_game
             Mediator.Subscribe("EndProgram", OnEndProgram);
         }
 
+        // Notifications handlers
+
         private void OnRestart(object obj)
         {
             WindowVM.ChangeViewModel(HelloVM);
@@ -58,7 +60,7 @@ namespace Snake_the_game
             System.Windows.Application.Current.Shutdown();
         }
 
-        // Notifications handlers
+        
 
     }
 }

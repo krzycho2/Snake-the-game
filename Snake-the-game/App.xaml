@@ -8,13 +8,13 @@
              >
     <Application.Resources>
         <DataTemplate DataType="{x:Type viewmodels:HelloViewModel}">
-            <views:HelloView/>
+            <views:HelloView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:HelloViewModel}">
-            <views:HelloView/>
+        <DataTemplate DataType="{x:Type viewmodels:GameViewModel}">
+            <views:GameView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:HelloViewModel}">
-            <views:HelloView/>
+        <DataTemplate DataType="{x:Type viewmodels:SummaryViewModel}">
+            <views:SummaryView />
         </DataTemplate>
     </Application.Resources>
 </Application>

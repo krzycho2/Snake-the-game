@@ -17,13 +17,8 @@ namespace Snake_the_game
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            var appWindow = new MainWindow()
-            {
-                //DataContext = new MainWindowViewModel()
-                DataContext = new GameViewModel()
-            };
-            appWindow.Show();
-            
+            _ = new WindowManager();
+
         }
     }
 }

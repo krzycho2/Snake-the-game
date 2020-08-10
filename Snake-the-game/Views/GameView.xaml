@@ -7,7 +7,53 @@
              xmlns:viewmodels="clr-namespace:Snake_the_game.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBox Text="Siemaneczko"/>
-    </Grid>
+    <Canvas Name="GameArea" Height="400" Width="400">
+
+        <ItemsControl ItemsSource="{Binding SnakeParts, UpdateSourceTrigger=PropertyChanged}">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas IsItemsHost="True"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Canvas.Left" Value="{Binding Position.X}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding Position.Y}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Rectangle Width="20" Height="20" Fill="Black" Stroke="White" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+
+        <!-- Food -->
+        <Ellipse Width="20" Height="20" Canvas.Left="{Binding FoodPosition.X}" Canvas.Top="{Binding FoodPosition.Y}" Fill="Red"/>
+
+        
+
+    </Canvas>
+
+    <!--Key bindings for intercepting arrow to steer the snake.-->
+    <UserControl.InputBindings>
+        <KeyBinding 
+            Key="Up"
+            Command="{Binding UpPress}"/>
+        <KeyBinding 
+            Key="Down"
+            Command="{Binding DownPress}"/>
+        <KeyBinding 
+            Key="Left"
+            Command="{Binding LeftPress}"/>
+        <KeyBinding 
+            Key="Right"
+            Command="{Binding RightPress}"/>
+    </UserControl.InputBindings>
+
+
 </UserControl>

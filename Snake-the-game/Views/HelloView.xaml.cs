@@ -18,9 +18,9 @@ namespace Snake_the_game.Views
     /// <summary>
     /// Interaction logic for Hello.xaml
     /// </summary>
-    public partial class Hello : UserControl
+    public partial class HelloView : UserControl
     {
-        public Hello()
+        public HelloView()
         {
             InitializeComponent();
         }

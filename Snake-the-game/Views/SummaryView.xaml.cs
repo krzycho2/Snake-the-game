@@ -18,9 +18,9 @@ namespace Snake_the_game.Views
     /// <summary>
     /// Interaction logic for Summary.xaml
     /// </summary>
-    public partial class Summary : UserControl
+    public partial class SummaryView : UserControl
     {
-        public Summary()
+        public SummaryView()
         {
             InitializeComponent();
         }

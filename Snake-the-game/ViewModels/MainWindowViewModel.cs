@@ -30,20 +30,5 @@ namespace Snake_the_game.ViewModels
         {
             CurrentPageViewModel = viewModel;
         }
-
-        //private GameViewModel _gameViewModel = new GameViewModel();
-
-        //public GameViewModel GameViewModel
-        //{
-        //    get => _gameViewModel;
-
-        //    set
-        //    {
-        //        _gameViewModel = value;
-        //        OnPropertyChanged("gameViewModel");
-        //        Console.WriteLine("Ustawienie gameViewModel");
-        //    }
-
-        //}
     }
 }

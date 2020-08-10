@@ -20,17 +20,10 @@ namespace Snake_the_game.ViewModels
         public ObservableCollection<SnakePart> SnakeParts
         {
             get => _snakeParts;
-
             set
             {
                 _snakeParts = value;
                 OnPropertyChanged("SnakeParts");
-                Console.WriteLine("Aktualny wąż:");
-                Console.WriteLine($"Głowa: {Game.Snake.HeadPosition.X} {Game.Snake.HeadPosition.Y}.");
-                //foreach (var part in SnakeParts)
-                //{
-                //    Console.WriteLine(part.Position.X + " " + part.Position.Y);
-                //}
             }
         }
 
