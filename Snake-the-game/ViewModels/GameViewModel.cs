@@ -12,7 +12,7 @@ using System.Collections.ObjectModel;
 
 namespace Snake_the_game.ViewModels
 {
-    public class GameViewModel : BaseViewModel
+    public class GameViewModel : BaseViewModel, IPageViewModel
     {
         private ObservableCollection<SnakePart> _snakeParts;
         private Position _foodPosition = new Position { X = 100, Y = 100 };
@@ -72,14 +72,25 @@ namespace Snake_the_game.ViewModels
             get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Right);
         }
 
+        public int Score {
+            get 
+            {
+                if (Game == null)
+                    return 0;
+                else
+                    return Game.Score;
+            }
+        }
+
 
         private Game Game { get; set; }
 
-        public GameViewModel()
+        private DispatcherTimer Timer { get; set; }
+
+        public void StartGame()
         {
             Game = new Game();
             StartClock();
-            Console.WriteLine("Utworzenie GameViewModel.");
         }
 
         private void StartClock()
@@ -93,7 +104,7 @@ namespace Snake_the_game.ViewModels
 
         private void GameTick(object sender, EventArgs e)
         {
-            Game.TimerTick();
+            Game.Tick();
             ReadFromModel();
         }
 
@@ -101,6 +112,11 @@ namespace Snake_the_game.ViewModels
         {
             SnakeParts = new ObservableCollection<SnakePart>(Game.Snake.SnakeParts);
             FoodPosition = Game.Food.Position;
+        }
+
+        public void StopGame()
+        {
+            Timer.Stop();
         }
     }
 }

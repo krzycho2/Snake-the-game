@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -16,6 +17,7 @@ namespace Snake_the_game.Models
 
         public int Score { get; set; } = 0;
 
+        public bool GameOver { get; private set; } = false;
 
         public Game()
         {
@@ -33,18 +35,42 @@ namespace Snake_the_game.Models
             return new Food(AppContext.INIT_FOOD_POSITION);
         }
 
-        public void TimerTick()
+        public void Tick()
         {
-            Console.WriteLine($"Food: {Food.Position.X} {Food.Position.Y}, Snake: {Snake.HeadPosition.X} {Snake.HeadPosition.Y}");
-            if (Snake.HeadPosition.X == Food.Position.X && Snake.HeadPosition.Y == Food.Position.Y)
+            if (!GameOver)
             {
-                Console.WriteLine("Warunek na zjedzenie spełniony");
-                Snake.Eat();
-                Food.CreateNewPosition();
-                Score++;
-            }
+                if (Snake.EatingItself())
+                {
+                    EndGame();
+                    return;
+                }
 
-            Snake.Move();
+                //Console.WriteLine($"Food: {Food.Position.X} {Food.Position.Y}, Snake: {Snake.HeadPosition.X} {Snake.HeadPosition.Y}");
+                if (HeadOnFood())
+                {
+                    Console.WriteLine("Warunek na zjedzenie spełniony");
+                    Snake.Eat();
+                    Food.CreateNewPosition();
+                    Score++;
+                }
+
+                Snake.Move();
+            }
         }
+
+        private void EndGame()
+        {
+            GameOver = true;
+            MessageBox.Show("Koniec gry. Wynik: " + Score);
+            Mediator.Notify("EndGame", "");
+        }
+
+        private bool HeadOnFood()
+        {
+            return Snake.HeadPosition.X == Food.Position.X && Snake.HeadPosition.Y == Food.Position.Y;
+        }
+
+
+
     }
 }

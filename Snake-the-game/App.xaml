@@ -7,6 +7,14 @@
 
              >
     <Application.Resources>
-
+        <DataTemplate DataType="{x:Type viewmodels:HelloViewModel}">
+            <views:HelloView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HelloViewModel}">
+            <views:HelloView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HelloViewModel}">
+            <views:HelloView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

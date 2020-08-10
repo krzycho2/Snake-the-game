@@ -9,19 +9,41 @@ namespace Snake_the_game.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private GameViewModel _gameViewModel = new GameViewModel();
+        private IPageViewModel _currentPageViewModel;
 
-        public GameViewModel GameViewModel
+        public IPageViewModel CurrentPageViewModel
         {
-            get => _gameViewModel;
-
-            set
+            get => _currentPageViewModel;
+            private set
             {
-                _gameViewModel = value;
-                OnPropertyChanged("gameViewModel");
-                Console.WriteLine("Ustawienie gameViewModel");
+                _currentPageViewModel = value;
+                OnPropertyChanged("CurrentPageViewModel");
             }
-
         }
+
+        public MainWindowViewModel(IPageViewModel firstPage)
+        {
+            CurrentPageViewModel = firstPage;
+        }
+
+        public void ChangeViewModel(IPageViewModel viewModel)
+        {
+            CurrentPageViewModel = viewModel;
+        }
+
+        //private GameViewModel _gameViewModel = new GameViewModel();
+
+        //public GameViewModel GameViewModel
+        //{
+        //    get => _gameViewModel;
+
+        //    set
+        //    {
+        //        _gameViewModel = value;
+        //        OnPropertyChanged("gameViewModel");
+        //        Console.WriteLine("Ustawienie gameViewModel");
+        //    }
+
+        //}
     }
 }

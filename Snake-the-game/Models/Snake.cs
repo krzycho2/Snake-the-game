@@ -85,5 +85,19 @@ namespace Snake_the_game.Models
             //    Console.WriteLine(part.Position.X + " " + part.Position.Y);
             //}
         }
+
+        public bool EatingItself()
+        {
+            int x = HeadPosition.X;
+            int y = HeadPosition.Y;
+
+            foreach (var part in SnakeParts.GetRange(1, SnakeParts.Count - 1))
+            {
+                if (part.Position.X == x && part.Position.Y == y)
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

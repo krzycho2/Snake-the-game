@@ -28,7 +28,7 @@
             
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Rectangle Width="20" Height="20" Fill="Black"/>
+                    <Rectangle Width="20" Height="20" Fill="Black" Stroke="White" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             
