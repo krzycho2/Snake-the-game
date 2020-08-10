@@ -45,7 +45,6 @@ namespace Snake_the_game.Models
                     return;
                 }
 
-                //Console.WriteLine($"Food: {Food.Position.X} {Food.Position.Y}, Snake: {Snake.HeadPosition.X} {Snake.HeadPosition.Y}");
                 if (HeadOnFood())
                 {
                     Console.WriteLine("Warunek na zjedzenie spełniony");

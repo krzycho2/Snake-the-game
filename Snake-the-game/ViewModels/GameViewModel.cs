@@ -45,25 +45,7 @@ namespace Snake_the_game.ViewModels
 
         public Position InitFoodPosition { get => AppContext.INIT_FOOD_POSITION; }
 
-        public ICommand UpPress
-        {
-            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Up);
-        }
 
-        public ICommand DownPress
-        {
-            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Down);
-        }
-
-        public ICommand LeftPress
-        {
-            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Left);
-        }
-
-        public ICommand RightPress
-        {
-            get => new RelayCommand(x => Game.Snake.Direction = SnakeDirection.Right);
-        }
 
         public int Score {
             get 
@@ -89,10 +71,10 @@ namespace Snake_the_game.ViewModels
         private void StartClock()
         {
             Console.WriteLine("Start zegarka.");
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += GameTick;
-            timer.Start();
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1);
+            Timer.Tick += GameTick;
+            Timer.Start();
         }
 
         private void GameTick(object sender, EventArgs e)
@@ -110,6 +92,29 @@ namespace Snake_the_game.ViewModels
         public void StopGame()
         {
             Timer.Stop();
+        }
+
+        public void OnKeyPressed(Key key) 
+        {
+            switch (key)
+            {
+                case Key.Up:
+                    Game.Snake.Direction = SnakeDirection.Up;
+                    break;
+
+                case Key.Down:
+                    Game.Snake.Direction = SnakeDirection.Down;
+                    break;
+
+                case Key.Left:
+                    Game.Snake.Direction = SnakeDirection.Left;
+                    break;
+
+                case Key.Right:
+                    Game.Snake.Direction = SnakeDirection.Right;
+                    break;
+            }
+            
         }
     }
 }

@@ -35,25 +35,11 @@
         <!-- Food -->
         <Ellipse Width="20" Height="20" Canvas.Left="{Binding FoodPosition.X}" Canvas.Top="{Binding FoodPosition.Y}" Fill="Red"/>
 
-        
 
     </Canvas>
 
     <!--Key bindings for intercepting arrow to steer the snake.-->
-    <UserControl.InputBindings>
-        <KeyBinding 
-            Key="Up"
-            Command="{Binding UpPress}"/>
-        <KeyBinding 
-            Key="Down"
-            Command="{Binding DownPress}"/>
-        <KeyBinding 
-            Key="Left"
-            Command="{Binding LeftPress}"/>
-        <KeyBinding 
-            Key="Right"
-            Command="{Binding RightPress}"/>
-    </UserControl.InputBindings>
+
 
 
 </UserControl>

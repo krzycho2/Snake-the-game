@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Snake_the_game
 {
@@ -33,6 +34,10 @@ namespace Snake_the_game
             Mediator.Subscribe("StartGame", OnStartGame);
             Mediator.Subscribe("EndGame", OnEndGame);
             Mediator.Subscribe("EndProgram", OnEndProgram);
+            Mediator.Subscribe("UpPress", OnUpPress);
+            Mediator.Subscribe("DownPress", OnDownPress);
+            Mediator.Subscribe("LeftPress", OnLeftPress);
+            Mediator.Subscribe("RightPress", OnRightPress);
         }
 
         // Notifications handlers
@@ -60,7 +65,26 @@ namespace Snake_the_game
             System.Windows.Application.Current.Shutdown();
         }
 
-        
+        private void OnUpPress(object obj) 
+        {
+            GameVM.OnKeyPressed(Key.Up);
+        }
+
+        private void OnDownPress(object obj) 
+        {
+            GameVM.OnKeyPressed(Key.Down);
+        }
+
+        private void OnLeftPress(object obj) 
+        {
+            GameVM.OnKeyPressed(Key.Left);
+        }
+
+        private void OnRightPress(object obj) 
+        {
+            GameVM.OnKeyPressed(Key.Right);
+        }
+
 
     }
 }

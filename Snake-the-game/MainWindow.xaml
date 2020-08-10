@@ -11,5 +11,19 @@
 
     <ContentControl Content="{Binding CurrentPageViewModel}"/>
 
+    <Window.InputBindings>
+        <KeyBinding 
+            Key="Up"
+            Command="{Binding UpPress}"/>
+        <KeyBinding 
+            Key="Down"
+            Command="{Binding DownPress}"/>
+        <KeyBinding 
+            Key="Left"
+            Command="{Binding LeftPress}"/>
+        <KeyBinding 
+            Key="Right"
+            Command="{Binding RightPress}"/>
+    </Window.InputBindings>
 
 </Window>
