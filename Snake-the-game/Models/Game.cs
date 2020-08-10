@@ -86,7 +86,7 @@ namespace Snake_the_game.Models
             var imgLocation = imgLocations[rnd.Next(imgLocations.Count-1)];
 
             var downloader = new ImageDownloader();
-            var imageBitmap = await downloader.DownloadImage(imgLocation);
+            var imageBitmap = await downloader.DownloadImageAsync(imgLocation);
         }
 
     }
