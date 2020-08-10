@@ -77,9 +77,9 @@ namespace Snake_the_game.ViewModels
             Timer.Start();
         }
 
-        private void GameTick(object sender, EventArgs e)
+        private  void GameTick(object sender, EventArgs e)
         {
-            Game.TickAsync();
+            Game.Tick();
             ReadFromModel();
         }
 

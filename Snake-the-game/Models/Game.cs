@@ -35,7 +35,7 @@ namespace Snake_the_game.Models
             return new Food(AppContext.INIT_FOOD_POSITION);
         }
 
-        public async Task TickAsync()
+        public async Task Tick()
         {
             if (!GameOver)
             {
@@ -86,7 +86,9 @@ namespace Snake_the_game.Models
             var imgLocation = imgLocations[rnd.Next(imgLocations.Count-1)];
 
             var downloader = new ImageDownloader();
+
             var imageBitmap = await downloader.DownloadImageAsync(imgLocation);
+            Console.WriteLine("Obrazek pobrany");
         }
 
     }

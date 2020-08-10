@@ -15,15 +15,24 @@ namespace Snake_the_game.Models
         public async Task<Bitmap> DownloadImageAsync(string url)
         {
             Bitmap imageBitmap = null;
-            using(var webClient = new WebClient())
-            { 
-                var imageBytes = await webClient.DownloadDataTaskAsync(url);
-                if(imageBytes != null && imageBytes.Length > 0)
+
+            try
+            {
+                using (var webClient = new WebClient())
                 {
-                    var ms = new MemoryStream(imageBytes);
-                    imageBitmap = new Bitmap(ms);
+                    var imageBytes = await webClient.DownloadDataTaskAsync(url);
+                    if (imageBytes != null && imageBytes.Length > 0)
+                    {
+                        var ms = new MemoryStream(imageBytes);
+                        imageBitmap = new Bitmap(ms);
+                    }
                 }
             }
+            catch (WebException)
+            { 
+                
+            }
+
             return imageBitmap;
         }
     }
