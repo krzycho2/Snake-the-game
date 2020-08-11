@@ -35,7 +35,6 @@ namespace Snake_the_game
             Mediator.Subscribe("StartGame", OnStartGame);
             Mediator.Subscribe("EndGame", OnEndGame);
             Mediator.Subscribe("EndProgram", OnEndProgram);
-            //Mediator.Subscribe("ImagePathSet", OnImagePathSet);
             Mediator.Subscribe("Scored", OnScored);
             Mediator.Subscribe("UpPress", OnUpPress);
             Mediator.Subscribe("DownPress", OnDownPress);
@@ -48,6 +47,7 @@ namespace Snake_the_game
         private void OnRestart(object obj)
         {
             WindowVM.ChangeViewModel(HelloVM);
+            WindowVM.OnRestart();
         }
 
         private void OnStartGame(object obj)
@@ -56,10 +56,6 @@ namespace Snake_the_game
             WindowVM.ChangeViewModel(GameVM);
         }
 
-        private void OnImagePathSet(object obj)
-        {
-            WindowVM.BackgroundImagePath = GameVM.ImagePath;
-        }
 
         private void OnScored(object obj)
         {

@@ -37,17 +37,6 @@ namespace Snake_the_game.ViewModels
             }
         }
 
-        public string BackgroundImagePath
-        {
-            get => _backgroundImagePath;
-            set
-            {
-                _backgroundImagePath = value;
-                Console.WriteLine("Zmiana obrazka");
-                OnPropertyChanged("BackgroundImagePath");
-            }
-        }
-
         public BitmapImage BitmapImageSource 
         {
             get => _bitmapImageSource;
@@ -57,6 +46,11 @@ namespace Snake_the_game.ViewModels
                 Console.WriteLine("Zmiana obrazka");
                 OnPropertyChanged("BitmapImageSource");
             } 
+        }
+
+        public void OnRestart()
+        {
+            BitmapImageSource = null;
         }
 
         public string InitBackImagePath { get => "../Resources/init-image.png"; }
