@@ -59,6 +59,8 @@ namespace Snake_the_game.ViewModels
             } 
         }
 
+        public string InitBackImagePath { get => "/Resources/init-image.png"; }
+
         public ICommand UpPress
         {
             get => _upPress ?? (_upPress = new RelayCommand(x => Mediator.Notify("UpPress", "")));
@@ -94,7 +96,8 @@ namespace Snake_the_game.ViewModels
         {
             // Zdjęcie początkowe
             var imgPath = @"C:\Users\Krzysztof Krupiński\source\repos\Snake-the-game\Snake-the-game\2.bmp";
-            var bitmap = new Bitmap(imgPath);
+            
+            var bitmap = new Bitmap(InitBackImagePath);
             var imageSource = SnakeImageDownloader.GetImageSource(bitmap);
             BitmapImageSource = imageSource;
         }
