@@ -5,12 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Snake_the_game.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Width="200" Height="100">
-        <TextBlock Text="Summary"/>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button Content="End" Command ="{Binding EndProgram}"/>
-            <Button Content="Restart" Command="{Binding Restart}"/>
+             >
+    <Grid Width="400" Height="400" >
+        <Grid.Background>
+            <SolidColorBrush Color="#FFF6D8D8" Opacity="0.1"/>
+        </Grid.Background>
+        <TextBlock Text="{Binding ScoreString}" FontFamily="Trebuchet MS" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Button Content="Sssstop" Command ="{Binding EndProgram}" Margin="0,0,50,0" Width="100" Foreground="White" Background="{x:Null}" FontSize="20" />
+            <Button Content="Sssspróbuj jeszcze raz!" Command="{Binding Restart}" Width="210" Foreground="White" Background="{x:Null}" FontSize="20"/>
         </StackPanel>
 
     </Grid>

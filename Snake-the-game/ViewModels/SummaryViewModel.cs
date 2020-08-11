@@ -30,6 +30,12 @@ namespace Snake_the_game.ViewModels
             }
         }
 
-        public int Score { get; set; }
+        public int Score { get; set; } = 0;
+
+        public string ScoreString
+        {
+            get => "Twój wynik to: " + Score.ToString();
+            
+        }
     }
 }

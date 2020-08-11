@@ -46,7 +46,10 @@ namespace Snake_the_game.Models
 
         public BitmapImage GetImageSource()
         {
-            return ConvertToBitmapImage(Image);
+            if (Image == null)
+                return null;
+            else
+                return ConvertToBitmapImage(Image);
         }
 
         public static BitmapImage GetImageSource(Bitmap bitmap)
@@ -68,6 +71,11 @@ namespace Snake_the_game.Models
 
                 return bitmapimage;
             }
+        }
+
+        public static BitmapImage ReadToBitmapImage(string filename)
+        {
+            return new BitmapImage();
         }
     }
 

@@ -59,7 +59,7 @@ namespace Snake_the_game.ViewModels
             } 
         }
 
-        public string InitBackImagePath { get => "/Resources/init-image.png"; }
+        public string InitBackImagePath { get => "../Resources/init-image.png"; }
 
         public ICommand UpPress
         {
@@ -89,17 +89,8 @@ namespace Snake_the_game.ViewModels
         public  MainWindowViewModel(IPageViewModel firstPage)
         {
             CurrentPageViewModel = firstPage;
-            SetDefaultBackImg();
-        }
-
-        private void SetDefaultBackImg()
-        {
-            // Zdjęcie początkowe
-            var imgPath = @"C:\Users\Krzysztof Krupiński\source\repos\Snake-the-game\Snake-the-game\2.bmp";
-            
-            var bitmap = new Bitmap(InitBackImagePath);
-            var imageSource = SnakeImageDownloader.GetImageSource(bitmap);
-            BitmapImageSource = imageSource;
+            //SetDefaultBackImg();
+            BitmapImageSource = null; // brak zdjęcia na początek
         }
 
         public void ChangeViewModel(IPageViewModel viewModel)

@@ -7,9 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
-        <TextBlock Text="Witamy w grze Snek. Należy w niej tak poruszać wężem przy pomocy strzałek, aby ten zdobywał pożywienie i nie zjadał własnego ogona. Powodzenia!
-                  " VerticalAlignment="Bottom" Margin="20,0,20,360" Foreground="White" 
-                   Height="100" TextWrapping="Wrap" TextAlignment="Justify" FontSize="20" FontFamily="Trebuchet MS"/>
-        <Button Content="Rozpocznij grę" Command="{Binding StartGame}" VerticalAlignment="Bottom" Height="35" Margin="150,0,155,20" Foreground="White" Background="{x:Null}" FontSize="20" />
+        <TextBlock VerticalAlignment="Bottom" Margin="10,0,30,135" Foreground="White" 
+                   Height="280" TextWrapping="Wrap" TextAlignment="Justify" FontSize="20" FontFamily="Trebuchet MS">
+            Witamy w grze Snake. Należy w niej tak poruszać wężem przy pomocy strzałek, aby ten zdobywał pożywienie i nie zjadał własnego ogona.<LineBreak/>
+            Przy zdobyciu pożywienia czeka na Ciebie nagroda!<LineBreak/>
+            Do poprawnego działania wymagane jest połączenie z internetem. <LineBreak/>
+            Powodzenia!<LineBreak/><LineBreak/><LineBreak/>
+            Autor: Krzysztof Krupiński
+
+        </TextBlock>
+
+        <Button Content="Sssstart!" Command="{Binding StartGame}" VerticalAlignment="Bottom" Height="35" Margin="150,0,155,20" Foreground="White" Background="{x:Null}" FontSize="20" />
     </Grid>
 </UserControl>
