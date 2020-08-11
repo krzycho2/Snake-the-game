@@ -8,7 +8,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
     <StackPanel>
-        <Canvas Name="GameArea" Height="400" Width="400" Background="AliceBlue">
+        <Canvas Name="GameArea" Height="400" Width="400" >
+            <Canvas.Background>
+                <SolidColorBrush Color="#FFF6D8D8" Opacity="0.1"/>
+            </Canvas.Background>
 
             <ItemsControl ItemsSource="{Binding SnakeParts, UpdateSourceTrigger=PropertyChanged}">
 
@@ -27,7 +30,7 @@
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Rectangle Width="20" Height="20" Fill="Black" Stroke="White" />
+                        <Rectangle Width="20" Height="20" Fill="AliceBlue" Stroke="Black" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
 

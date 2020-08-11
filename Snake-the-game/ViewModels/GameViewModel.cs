@@ -63,6 +63,8 @@ namespace Snake_the_game.ViewModels
 
         public string ImagePath { get => Game.ImagePath; }
 
+        public double GameSpeed { get; set; } = 2.0; // sqaures per second
+
         private Game Game { get; set; }
 
         private DispatcherTimer Timer { get; set; }
@@ -77,7 +79,7 @@ namespace Snake_the_game.ViewModels
         {
             Console.WriteLine("Start zegarka.");
             Timer = new DispatcherTimer();
-            Timer.Interval = TimeSpan.FromSeconds(1);
+            Timer.Interval = TimeSpan.FromSeconds(1.0/GameSpeed);
             Timer.Tick += GameTick;
             Timer.Start();
         }

@@ -52,12 +52,12 @@ namespace Snake_the_game.Models
 
             if (x < 0)
                 x = maxX + x;
-            else if (x > maxX)
+            else if (x >= maxX)
                 x = x - maxX;
 
             if (y < 0)
                 y = maxY + y;
-            else if (y > maxY)
+            else if (y >= maxY)
                 y = y - maxY;
 
             return new Position { X = x, Y = y };
