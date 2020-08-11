@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Snake_the_game.Models
 {
-    public class ImageDownloader
+    public abstract class ImageDownloader
     {
-        public async Task<Bitmap> DownloadImageAsync(string url)
+        protected async Task<Bitmap> DownloadImageAsync(string url)
         {
             Bitmap imageBitmap = null;
 

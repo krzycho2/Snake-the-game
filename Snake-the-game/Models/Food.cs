@@ -39,7 +39,7 @@ namespace Snake_the_game.Models
         {
             var possibleVals = new List<int>();
             int current = 0;
-            while (current <= maxValue)
+            while (current < maxValue)
             {
                 possibleVals.Add(current);
                 current += square;
@@ -50,8 +50,8 @@ namespace Snake_the_game.Models
 
         public void CreateNewPosition() 
         {
-            int newXindex = RandomIndex(MaxX);
-            int newYindex = RandomIndex(MaxY);
+            int newXindex = RandomIndex(PossibleX.Count);
+            int newYindex = RandomIndex(PossibleY.Count);
 
             int newX = PossibleX[newXindex];
             int newY = PossibleY[newYindex];

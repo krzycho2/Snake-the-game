@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="500"  ResizeMode="NoResize" >
     <Window.Background>
-        <ImageBrush ImageSource="{Binding BackgroundImagePath}" Stretch="Fill" Opacity="0.5"/>
+        <!--<ImageBrush ImageSource="{Binding BackgroundImagePath}" Stretch="Fill" Opacity="0.5" />-->
+        <ImageBrush ImageSource="{Binding BitmapImageSource}" Stretch="Fill" Opacity="0.5" />
     </Window.Background>
 
     <Grid>
