@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:Snake_the_game"
         
         mc:Ignorable="d"
-        Height="500" Width="500"  ResizeMode="NoResize" Title="Snake">
+        Height="500" Width="500"  ResizeMode="NoResize" Title="Snake" >
     <Window.Background>
-        <!--<ImageBrush ImageSource="{Binding BackgroundImagePath}" Stretch="Fill" Opacity="0.5" />-->
         <ImageBrush ImageSource="{Binding BitmapImageSource}" Stretch="Fill" Opacity="0.5" />
     </Window.Background>
 

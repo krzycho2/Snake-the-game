@@ -16,6 +16,8 @@ namespace Snake_the_game.Models
 
         private List<string> ImgLocations { get; set; }
 
+        //private MemoryStream Memory { get; set; } = new MemoryStream();
+
         public SnakeImageDownloader()
         {
             ImgLocations = new List<string>
@@ -24,7 +26,11 @@ namespace Snake_the_game.Models
                 @"https://cdn.pixabay.com/photo/2019/02/06/17/09/snake-3979601__480.jpg",
                 @"https://cdn.pixabay.com/photo/2013/10/15/10/04/snake-195917__480.jpg",
                 @"https://cdn.pixabay.com/photo/2016/10/21/19/34/snake-1758994__480.jpg",
-                @"https://cdn.pixabay.com/photo/2016/03/28/10/07/snake-1285354__480.jpg"
+                @"https://cdn.pixabay.com/photo/2016/03/28/10/07/snake-1285354__480.jpg",
+                @"https://cdn.pixabay.com/photo/2015/02/28/15/25/snake-653639__480.jpg",
+                @"https://cdn.pixabay.com/photo/2013/07/13/13/42/animal-161424__480.png",
+                @"https://cdn.pixabay.com/photo/2015/05/17/20/39/snake-771541__480.jpg",
+                @"https://cdn.pixabay.com/photo/2014/08/15/21/40/snake-419043__480.jpg"
             };
         }
 
@@ -52,12 +58,7 @@ namespace Snake_the_game.Models
                 return ConvertToBitmapImage(Image);
         }
 
-        public static BitmapImage GetImageSource(Bitmap bitmap)
-        {
-            return ConvertToBitmapImage(bitmap);
-        }
-
-        private static BitmapImage ConvertToBitmapImage(Bitmap bitmap)
+        private BitmapImage ConvertToBitmapImage(Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())
             {
@@ -69,13 +70,9 @@ namespace Snake_the_game.Models
                 bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapimage.EndInit();
 
+
                 return bitmapimage;
             }
-        }
-
-        public static BitmapImage ReadToBitmapImage(string filename)
-        {
-            return new BitmapImage();
         }
     }
 

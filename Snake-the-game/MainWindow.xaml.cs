@@ -18,11 +18,16 @@ namespace Snake_the_game
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IDisposable
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void Dispose()
+        {
+
         }
     }
 }

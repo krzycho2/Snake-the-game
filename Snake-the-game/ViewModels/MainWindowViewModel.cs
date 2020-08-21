@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 
 namespace Snake_the_game.ViewModels
 {
-    public class MainWindowViewModel : BaseViewModel
+    public class MainWindowViewModel : BaseViewModel, IDisposable
     {
         #region fields
         private IPageViewModel _currentPageViewModel;
@@ -51,6 +51,7 @@ namespace Snake_the_game.ViewModels
         public void OnRestart()
         {
             BitmapImageSource = null;
+            SnakeImageDownloader = new SnakeImageDownloader();
         }
 
         public string InitBackImagePath { get => "../Resources/init-image.png"; }
@@ -75,7 +76,7 @@ namespace Snake_the_game.ViewModels
             get => _rightPress ?? (_rightPress = new RelayCommand(x => Mediator.Notify("RightPress", "")));
         }
 
-        private SnakeImageDownloader ImageDownloader { get; set; } = new SnakeImageDownloader();
+        private SnakeImageDownloader SnakeImageDownloader { get; set; } = new SnakeImageDownloader();
 
         #endregion
 
@@ -99,9 +100,13 @@ namespace Snake_the_game.ViewModels
 
         private async Task SetNewBackImg()
         {
-            await ImageDownloader.DownloadSnakeImg();
-            BitmapImageSource = ImageDownloader.GetImageSource();
+            await SnakeImageDownloader.DownloadSnakeImg();
+            BitmapImageSource = SnakeImageDownloader.GetImageSource();
         }
 
+        public void Dispose()
+        {
+            BitmapImageSource = null;
+        }
     }
 }

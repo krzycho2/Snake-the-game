@@ -55,7 +55,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Models\ImageDownloaderTests.cs" />
+    <Compile Include="Models\SnakeImageDownloaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
