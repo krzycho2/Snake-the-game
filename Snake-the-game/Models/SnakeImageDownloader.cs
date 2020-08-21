@@ -6,13 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace Snake_the_game.Models
 {
-    public class SnakeImageDownloader : ImageDownloader
+    public class SnakeImageDownloader : ImageDownloader, IDisposable
     {
-        private Bitmap Image { get; set; }
+        //private Bitmap Image { get; set; }
 
         private List<string> ImgLocations { get; set; }
 
@@ -37,8 +38,7 @@ namespace Snake_the_game.Models
         public async Task DownloadSnakeImg()
         {
             var imgLocation = RandomLocation();
-            Image = await DownloadImageAsync(imgLocation);
-
+            await DownloadImageAsync(imgLocation);
         }
 
         private string RandomLocation()
@@ -55,25 +55,32 @@ namespace Snake_the_game.Models
             if (Image == null)
                 return null;
             else
-                return ConvertToBitmapImage(Image);
+                return ConvertBitmapToBitmapImage();
         }
 
-        private BitmapImage ConvertToBitmapImage(Bitmap bitmap)
+        private BitmapImage ConvertBitmapToBitmapImage()
         {
             using (MemoryStream memory = new MemoryStream())
             {
-                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                Image.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
                 memory.Position = 0;
                 BitmapImage bitmapimage = new BitmapImage();
                 bitmapimage.BeginInit();
                 bitmapimage.StreamSource = memory;
                 bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapimage.EndInit();
-
+                bitmapimage.Freeze();
 
                 return bitmapimage;
             }
         }
+
+        public void Dispose()
+        {
+            Image.Dispose();
+            GC.Collect();
+        }
+
     }
 
 

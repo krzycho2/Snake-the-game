@@ -48,6 +48,7 @@ namespace Snake_the_game
         {
             WindowVM.ChangeViewModel(HelloVM);
             WindowVM.OnRestart();
+            GameVM = new GameViewModel();
         }
 
         private void OnStartGame(object obj)

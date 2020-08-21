@@ -50,8 +50,8 @@ namespace Snake_the_game.ViewModels
 
         public void OnRestart()
         {
-            BitmapImageSource = null;
-            SnakeImageDownloader = new SnakeImageDownloader();
+            Dispose();
+            
         }
 
         public string InitBackImagePath { get => "../Resources/init-image.png"; }
@@ -102,11 +102,13 @@ namespace Snake_the_game.ViewModels
         {
             await SnakeImageDownloader.DownloadSnakeImg();
             BitmapImageSource = SnakeImageDownloader.GetImageSource();
+            SnakeImageDownloader.Dispose();
         }
 
         public void Dispose()
         {
             BitmapImageSource = null;
+            SnakeImageDownloader.Dispose();
         }
     }
 }

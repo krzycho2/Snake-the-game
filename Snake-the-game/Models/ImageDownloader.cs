@@ -12,10 +12,10 @@ namespace Snake_the_game.Models
 {
     public abstract class ImageDownloader
     {
-        protected async Task<Bitmap> DownloadImageAsync(string url)
-        {
-            Bitmap imageBitmap = null;
+        protected Bitmap Image { get; set; }
 
+        protected async Task DownloadImageAsync(string url)
+        {
             try
             {
                 using (var webClient = new WebClient())
@@ -24,16 +24,14 @@ namespace Snake_the_game.Models
                     if (imageBytes != null && imageBytes.Length > 0)
                     {
                         var ms = new MemoryStream(imageBytes);
-                        imageBitmap = new Bitmap(ms);
+                        Image = new Bitmap(ms);
                     }
                 }
             }
             catch (WebException)
-            { 
-                
+            {
+                Console.WriteLine("Wykryty błąd z siecią, nie pobrano obrazka.");
             }
-
-            return imageBitmap;
         }
     }
 }
