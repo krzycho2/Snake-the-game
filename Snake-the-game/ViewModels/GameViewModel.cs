@@ -102,6 +102,7 @@ namespace Snake_the_game.ViewModels
             Timer.Stop();
         }
 
+
         public void OnKeyPressed(Key key) 
         {
             switch (key)

@@ -17,15 +17,17 @@ namespace Snake_the_game
         public GameViewModel GameVM { get; private set; } = new GameViewModel();
         public SummaryViewModel SummaryVM { get; private set; } = new SummaryViewModel();
 
+        public MainWindow Window { get; set; }
+
         public WindowManager()
         {
             WindowVM = new MainWindowViewModel(HelloVM);
-            MainWindow window = new MainWindow()
+            Window = new MainWindow()
             {
                 DataContext = WindowVM
             };
-            window.Show();
-
+            Window.Show();
+            
             SubscribeToNotifications();
         }
 
@@ -46,6 +48,8 @@ namespace Snake_the_game
 
         private void OnRestart(object obj)
         {
+            Window.DataContext = null;
+            Window.DataContext = WindowVM;
             WindowVM.ChangeViewModel(HelloVM);
             WindowVM.OnRestart();
             GameVM = new GameViewModel();

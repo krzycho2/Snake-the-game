@@ -78,6 +78,7 @@ namespace Snake_the_game.Models
         public void Dispose()
         {
             Image.Dispose();
+            WebClient.Dispose();
             GC.Collect();
         }
 

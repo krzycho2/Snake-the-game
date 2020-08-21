@@ -14,19 +14,21 @@ namespace Snake_the_game.Models
     {
         protected Bitmap Image { get; set; }
 
+        protected WebClient WebClient { get; set; } = new WebClient();
+
         protected async Task DownloadImageAsync(string url)
         {
             try
             {
-                using (var webClient = new WebClient())
+
+                var imageBytes = await WebClient.DownloadDataTaskAsync(url);
+                if (imageBytes != null && imageBytes.Length > 0)
                 {
-                    var imageBytes = await webClient.DownloadDataTaskAsync(url);
-                    if (imageBytes != null && imageBytes.Length > 0)
-                    {
-                        var ms = new MemoryStream(imageBytes);
-                        Image = new Bitmap(ms);
-                    }
+                    var ms = new MemoryStream(imageBytes);
+                    Image = new Bitmap(ms);
                 }
+                
+                
             }
             catch (WebException)
             {
