@@ -18,7 +18,6 @@ namespace Snake_the_game
         {
             base.OnStartup(e);
             _ = new WindowManager();
-
         }
     }
 }
